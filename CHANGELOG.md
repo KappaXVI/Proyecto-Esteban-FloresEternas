@@ -90,6 +90,40 @@ npm run dev
 
 ---
 
+## [0.4.0] - 2026-10-09 - Design System Setup (Fase 0)
+
+### Agregado
+- **tailwind.config.js** - Configuración completa con paleta AGENTS.md:
+  - Colores: crema (#FFFCF6), blanco, rosa-suave (#FFDADE), ciruela (#5E0048), cafe-medio (#83572E), cafe-oscuro (#572A00), gris-claro (#E5E5E5), vino (#6E0107 - extraído del logo)
+  - Fuentes: Radley (títulos), Poppins (UI), Lora (precios), Jost (logo)
+  - Border radius: xl (20px) a 5xl (40px)
+  - Sombras cálidas (warm, warm-lg, warm-xl)
+  - Animaciones: fade-in-up, fade-in
+  - Directorio: raíz
+- **Google Fonts** en `index.html`: Radley, Poppins, Lora, Jost
+  - Directorio: raíz
+- **src/index.css** - Diseño system completo con @theme, utilidades base, botones, secciones
+  - Directorio: `src/`
+- **Color vino extraído** programáticamente del logo: `#6E0107`
+  - Script: `scripts/extract-color.mjs`
+
+### Modificado
+- **vite.config.js** - Ya configurado con `@tailwindcss/vite`
+  - Directorio: raíz
+- **index.html** - lang="es", meta tags, Google Fonts, title SEO
+  - Directorio: raíz
+
+### Assets en public/images/
+- Fondo.png (Hero background)
+- Logotipo Flores Eternas con Monograma LP.png (Navbar logo)
+- Mesa1.png (Laptop Hero)
+- Superficie de mesa de madera pulida.png (Wood surface Hero)
+- MesaInferior.png (Devices section)
+- Panel de gestión floral elegante.png (Admin panels)
+- general.png (Referencia)
+
+---
+
 ## Registro de Cambios Futuros
 
 ### Formato para nuevas entradas:
