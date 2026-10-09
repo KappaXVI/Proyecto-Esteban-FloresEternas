@@ -291,7 +291,8 @@ export default function Home() {
             <div className="flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <ButtonSecondary
                 iconRight={arrowRightIcon}
-                className="bg-blanco text-vino hover:bg-crema hover:shadow-warm-lg px-10 py-4 rounded-3xl text-lg"
+                variant="white"
+                className="px-4 py-2 text-lg"
               >
                 Conocer la plataforma
               </ButtonSecondary>
