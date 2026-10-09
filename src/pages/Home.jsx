@@ -1,4 +1,4 @@
-import { Hero, Button, Text } from '@heroui/react'
+import { Button, Heading, Paragraph } from '@heroui/react'
 
 export default function Home() {
   return (
@@ -7,14 +7,14 @@ export default function Home() {
       
       <div className="absolute inset-0 z-10 opacity-10" style={{ backgroundImage: 'url(/bg-pattern.svg)' }} />
       
-      <Hero className="relative z-20 max-w-4xl px-6 text-center">
-        <Hero.Content className="space-y-6">
-          <Text h1 className="text-white font-bold tracking-tight">
+      <div className="relative z-20 max-w-4xl px-6 text-center">
+        <div className="space-y-6">
+          <Heading className="text-white font-bold tracking-tight" level={1}>
             Flores Eternas
-          </Text>
-          <Text p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          </Heading>
+          <Paragraph className="text-gray-300 text-lg max-w-2xl mx-auto">
             Belleza que perdura. Arreglos florales preservados que mantienen su frescura y elegancia por años.
-          </Text>
+          </Paragraph>
           <div className="flex gap-4 justify-center mt-8">
             <Button color="primary" size="lg" autoWidth>
               Ver Catálogo
@@ -23,8 +23,8 @@ export default function Home() {
               Contactar
             </Button>
           </div>
-        </Hero.Content>
-      </Hero>
+        </div>
+      </div>
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
         <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">

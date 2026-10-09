@@ -35,7 +35,7 @@ src/
 - **react-router-dom** - Navegación SPA (Single Page Application)
   - Directorio: `node_modules/react-router-dom` (dependencia)
 - **src/pages/Home.jsx** - Página principal con Hero section
-  - HeroUI: `Hero`, `Button`, `Text`
+  - HeroUI: `Button`, `Heading`, `Paragraph` (Hero y Text no existen en v3)
   - Fondo degradado + pattern SVG
   - CTA buttons: "Ver Catálogo" y "Contactar"
   - Directorio: `src/pages/`
@@ -47,8 +47,29 @@ src/
   - Ruta `/` → `Home`
   - Eliminado código boilerplate de Vite
   - Directorio: `src/`
-- **src/main.jsx** - Fix import CSS HeroUI v3 (`styles.css` vs `index.css`)
+- **src/main.jsx** - Fix import CSS HeroUI v3 (`styles` entry point) + **Eliminado `HeroUIProvider`** (ya no existe en v3)
   - Directorio: `src/`
+
+---
+
+## [0.3.0] - 2026-10-09 - Tailwind CSS 4 Setup
+
+### Agregado
+- **tailwindcss@4** - Framework CSS utility-first (requerido por HeroUI v3)
+- **@tailwindcss/vite** - Plugin Vite oficial para Tailwind 4
+  - Directorio: `node_modules/`
+
+### Modificado
+- **vite.config.js** - Plugin `tailwindcss()` añadido
+  - Directorio: raíz
+- **src/index.css** - Reemplazado boilerplate por `@import "tailwindcss";`
+  - Directorio: `src/`
+
+### Comandos
+```bash
+npm install -D tailwindcss@4 @tailwindcss/vite
+npm run dev
+```
 
 ### Estructura Actualizada
 ```
@@ -56,7 +77,7 @@ src/
 ├── pages/
 │   └── Home.jsx          # Página principal
 ├── App.jsx               # Router configurado
-└── main.jsx              # HeroUIProvider
+└── main.jsx              # Entry point (sin HeroUIProvider)
 public/
 └── bg-pattern.svg        # Pattern para fondo Hero
 ```
