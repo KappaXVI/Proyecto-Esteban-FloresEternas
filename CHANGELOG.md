@@ -124,6 +124,28 @@ npm run dev
 
 ---
 
+## [0.5.0] - 2026-10-09 - Componentes Base (Fase 1)
+
+### Agregado - Componentes UI Reutilizables (`src/components/`)
+- **ButtonPrimary.jsx** - Botón principal vino con iconos opcionales (play, flecha), `forwardRef`
+- **ButtonSecondary.jsx** - Botón secundario blanco/bordeado con iconos opcionales, `forwardRef`
+- **ButtonGhost.jsx** - Botón fantasma (default, white, rosa), `forwardRef`
+- **Navbar.jsx** - Navbar transparente fija (`fixed top-0 z-50`):
+  - 3 zonas: izquierda (Inicio, Funciones, Precios), centro (logo LP), derecha (Testimonios, Preguntas)
+  - Subrayado vino en link activo, Poppins, responsive hamburguesa mobile
+  - Backdrop blur + shadow al scroll
+  - Directorio: `src/components/`
+- **Section.jsx** - Wrapper de secciones con variantes (default, hero, cta, admin, devices), `forwardRef`
+- **Container.jsx** - Contenedor responsive (main, narrow, wide, full), `forwardRef`
+- **Heading.jsx** - Títulos Radley con soporte italic inline (para "más fácil.", "sin complicaciones."), niveles 1-6
+- **Body.jsx** - Párrafos Poppins con tamaños (sm, base, lg, xl), colores, alineación
+- **Price.jsx** - Precios Lora tabular-nums con símbolo $, decimales opcionales
+- **Badge.jsx** - Píldoras de estado (en-preparacion, en-camino, entregado, disponible, stock-bajo, pendiente, cancelado) con punto de color
+- **index.js** - Barrel export de todos los componentes
+  - Directorio: `src/components/`
+
+---
+
 ## Registro de Cambios Futuros
 
 ### Formato para nuevas entradas:
