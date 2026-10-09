@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ButtonGhost from './ButtonGhost';
-import logo from '../images/Logotipo Flores Eternas con Monograma LP.png';
+
+const logo = '/images/Logotipo%20Flores%20Eternas%20con%20Monograma%20LP.png';
 
 const navLinks = [
   { label: 'Inicio', href: '/' },
@@ -34,39 +35,41 @@ export default function Navbar() {
       transition-all duration-300
       ${isScrolled ? 'bg-crema/95 backdrop-blur-sm shadow-warm' : 'bg-transparent'}
     `}>
-      <nav className="container-main section-padding py-6" aria-label="Navegación principal">
+      <nav className="container-main px-6 py-2 lg:py-3" aria-label="Navegación principal">
         <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-8 lg:gap-12">
-            <Link
-              to="/"
-              className="flex items-center gap-2 lg:gap-4 -ml-2"
-              aria-label="Flores Eternas - Inicio"
-            >
-              <img
-                src={logo}
-                alt=""
-                className="h-10 lg:h-12 w-auto"
-                aria-hidden="true"
-              />
-            </Link>
-
-            <div className="hidden lg:flex items-center gap-6">
-              {navLinks.slice(0, 3).map(({ label, href }) => (
-                <NavLink key={label} label={label} href={href} isActive={location.pathname === href} />
-              ))}
-            </div>
+          {/* LINKS IZQUIERDA */}
+          <div className="hidden lg:flex items-center gap-6 lg:gap-8">
+            {navLinks.slice(0, 3).map(({ label, href }) => (
+              <NavLink key={label} label={label} href={href} isActive={location.pathname === href} />
+            ))}
           </div>
 
-          <div className="hidden lg:flex items-center gap-6">
+          {/* LOGO CENTRADO */}
+          <Link
+            to="/"
+            className="flex items-center gap-2 lg:gap-3 shrink-0"
+            aria-label="Flores Eternas - Inicio"
+          >
+            <img
+              src={logo}
+              alt=""
+              className="h-8 lg:h-10 w-auto"
+              aria-hidden="true"
+            />
+          </Link>
+
+          {/* LINKS DERECHA */}
+          <div className="hidden lg:flex items-center gap-6 lg:gap-8">
             {navLinks.slice(3).map(({ label, href }) => (
               <NavLink key={label} label={label} href={href} isActive={location.pathname === href} />
             ))}
           </div>
 
+          {/* HAMBURGUESA MOBILE */}
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="btn-ghost p-2 lg:hidden"
+              className="btn-ghost p-2"
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -98,12 +101,12 @@ function NavLink({ label, href, isActive }) {
       to={href}
       className={`
         font-poppins text-sm font-medium transition-colors duration-200
-        relative py-2 px-1
+        relative py-1.5 px-1
         ${active
           ? 'text-vino'
           : 'text-cafe-oscuro hover:text-vino'
         }
-        ${active ? 'after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-0.5 after:bg-vino after:rounded-full' : ''}
+        ${active ? 'after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-5 after:h-0.5 after:bg-vino after:rounded-full' : ''}
       `}
       aria-current={active ? 'page' : undefined}
     >
@@ -118,18 +121,18 @@ function MobileMenu({ isOpen, onClose, location }) {
   return (
     <div
       id="mobile-menu"
-      className="lg:hidden animate-fade-in py-4 border-t border-gris-claro"
+      className="lg:hidden animate-fade-in py-3 border-t border-gris-claro mt-2"
       role="navigation"
       aria-label="Menú móvil"
     >
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1">
         {navLinks.map(({ label, href }) => (
           <Link
             key={label}
             to={href}
             onClick={onClose}
             className={`
-              font-poppins text-base font-medium py-3 px-2 rounded-xl transition-colors
+              font-poppins text-sm font-medium py-2.5 px-2 rounded-xl transition-colors
               ${location.pathname === href
                 ? 'bg-rosa-suave text-vino'
                 : 'text-cafe-oscuro hover:bg-rosa-suave hover:text-vino'

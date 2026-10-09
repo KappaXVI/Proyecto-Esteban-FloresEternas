@@ -10,12 +10,12 @@ import {
   ButtonSecondary,
 } from '../components';
 
-import fondoHero from '../images/Fondo.png';
-import mesa1 from '../images/Mesa1.png';
-import superficieMesa from '../images/Superficie de mesa de madera pulida.png';
-import mesaInferior from '../images/MesaInferior.png';
-import panelGestion from '../images/Panel de gestión floral elegante.png';
-import logoImg from '../images/Logotipo Flores Eternas con Monograma LP.png';
+const fondoHero = '/images/Fondo.png';
+const mesa1 = '/images/Mesa1.png';
+const superficieMesa = '/images/Superficie%20de%20mesa%20de%20madera%20pulida.png';
+const mesaInferior = '/images/MesaInferior.png';
+const panelGestion = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
+const logoImg = '/images/Logotipo%20Flores%20Eternas%20con%20Monograma%20LP.png';
 
 const playIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
