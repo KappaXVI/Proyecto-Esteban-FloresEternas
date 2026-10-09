@@ -146,6 +146,49 @@ npm run dev
 
 ---
 
+## [0.6.0] - 2026-10-09 - Home Page Completa (Fases 2-3)
+
+### Agregado - Secciones Home Page (`src/pages/Home.jsx`)
+- **Hero Section** (6.2 AGENTS.md):
+  - Fondo: `Fondo.png` full-screen + gradiente crema izquierda para legibilidad
+  - 2 columnas desktop: Texto (izq) + Visual (der) con `lg:grid-cols-2`
+  - Copy exacto: "Tu negocio de flores eternas, *más fácil.*" (Radley, vino, italic rosa)
+  - Párrafo: "Gestiona tus pedidos, inventario y cierre de caja..." (Poppins, café oscuro)
+  - Botones: `ButtonPrimary` "Ver cómo funciona" (play + flecha) + `ButtonSecondary` "Contactar"
+  - Visual: `Superficie de mesa...png` base + `Mesa1.png` laptop + celular decorativo + pétalos/rosas SVG
+  - Overlap 20px (`-mt-5`) a siguiente sección
+  - Animaciones: fade-in-up escalonadas (100ms, 300ms)
+  - Flecha scroll bounce centrada
+
+- **Sección "Administra tu negocio"** (6.3 AGENTS.md):
+  - Fondo crema + gradiente rosa suave inferior
+  - 2 columnas: Texto (izq) + Imagen referencial `Panel de gestión floral elegante.png` (der)
+  - Copy exacto: "Administra tu negocio *sin complicaciones.*" + párrafo
+  - Paneles solapados visuales con tarjetas decorativas rotadas
+  - Imagen con `rounded-3xl`, `drop-shadow-warm-xl`
+
+- **Sección "Disponible en todos tus dispositivos"** (6.4 AGENTS.md):
+  - Fondo crema + rosas difuminadas SVG decorativas
+  - Título 2 líneas Radley + párrafo Poppins
+  - Visual: `MesaInferior.png` centrado (monitor + laptop + celular + rosas)
+  - `rounded-3xl`, `drop-shadow-warm-xl`
+
+- **CTA Final Banner** (6.5 AGENTS.md):
+  - Banda `rounded-5xl` fondo vino + textura floral + gradiente
+  - Flex 2 cols: Texto (Radley crema) + `ButtonSecondary` blanco "Conocer la plataforma →"
+  - Márgenes laterales `mx-auto max-w-7xl px-6`
+
+- **Footer simple**: Logo, copyright, enlaces legales
+
+### Assets Utilizados
+- `Fondo.png`, `Mesa1.png`, `Superficie de mesa...png`, `MesaInferior.png`, `Panel de gestión...png`, `Logotipo...png`
+  - Directorio: `public/images/`
+
+### Icons SVG Inline
+- Play, flechas, rosa, pétalo (sin dependencias externas)
+
+---
+
 ## Registro de Cambios Futuros
 
 ### Formato para nuevas entradas:
