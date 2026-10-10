@@ -24,10 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-
   return (
     <header className={`
       fixed top-0 left-0 right-0 z-50
@@ -94,7 +90,7 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
-        <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} location={location} />
+        <MobileMenu key={location.pathname} isOpen={isOpen} onClose={() => setIsOpen(false)} location={location} />
       </nav>
     </header>
   );

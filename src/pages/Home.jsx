@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import {
   Navbar,
   Section,
@@ -11,11 +11,13 @@ import {
 
 const fondoHero = '/images/Fondo.png';
 const mesaInferior = '/images/MesaInferior.png';
-const panelGestion = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
-const fondoAdmin = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
+const fondo2 = '/images/Fondo2.png';
 const fondoDevices = '/images/MesaInferior.png';
 const flor1 = '/images/Flor1.png';
 const primeraImagen = '/images/PrimeraImagen.png';
+const imgPedidos = '/images/Pedidos.png';
+const imgInventario = '/images/Inventario.png';
+const imgCierreCaja = '/images/CierreCaja.jpeg';
 
 const playIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -36,16 +38,7 @@ const arrowRightIcon = (
 );
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const heroRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <>
@@ -176,54 +169,122 @@ export default function Home() {
       </Section>
 
       {/* SECCIÓN: ADMINISTRA TU NEGOCIO */}
-      <Section variant="admin" id="administra" aria-labelledby="admin-title" className="relative">
-        {/* Fondo: Panel de gestión recortado + gradiente crema */}
+      <Section variant="adminHero" id="administra" aria-labelledby="admin-title" className="relative">
+        {/* Fondo: Fondo2.png */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <img
-            src={fondoAdmin}
+            src={fondo2}
             alt=""
             className="w-full h-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-crema via-crema to-rosa-suave/10" />
+          {/* Difuminado intenso hacia la izquierda (desde donde están las imágenes) */}
+          <div className="absolute inset-0 bg-gradient-to-l from-crema/95 via-crema/70 to-transparent" />
         </div>
 
-        <Container size="main" className="relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* COLUMNA IZQUIERDA: TEXTO */}
-            <div className="animate-fade-in-up">
-              <Heading
-                id="admin-title"
-                level={2}
-                italic
-                italicText="sin complicaciones."
-                italicColor="rosa-suave"
-                className="text-vino mb-6"
-              >
-                Administra tu negocio
-              </Heading>
-              <Body size="lg" color="cafe-oscuro" className="max-w-xl">
-                Lleva el control de tus pedidos, inventario y cierre de caja desde una interfaz simple e intuitiva.
-              </Body>
-            </div>
+        {/* Tres tarjetas UI - ABSOLUTAS, fuera del Container (estilo Hero) - Tamaño original al 50% */}
+        <div className="absolute z-[5] pointer-events-none" aria-hidden="true"
+             style={{
+               top: '64%',
+               left: '62%',
+               transform: 'translate(-50%, -50%)',
+               width: '85%',
+               height: '85%',
+               maxWidth: 'none',
+               maxHeight: 'none',
+             }}>
+          {/* Pedidos - izquierda (delante) */}
+          <div style={{
+            position: 'absolute',
+            top: '10%',
+            left: '36%',
+            transform: 'scale(0.6)',
+            transformOrigin: 'top left',
+            zIndex: 10,
+          }}>
+            <img
+              src={imgPedidos}
+              alt="Panel de Pedidos"
+              className="drop-shadow-warm-xl rounded-2xl opacity-100"
+              loading="eager"
+              style={{ objectFit: 'contain', display: 'block' }}
+            />
+          </div>
+          {/* Inventario - centro (delante) */}
+          <div style={{
+            position: 'absolute',
+            top: '350px',
+            left: '52%',
+            transform: 'scale(0.6)',
+            transformOrigin: 'top center',
+            zIndex: 10,
+          }}>
+            <img
+              src={imgInventario}
+              alt="Panel de Inventario"
+              className="drop-shadow-warm-xl rounded-2xl opacity-100"
+              loading="eager"
+              style={{ objectFit: 'contain', display: 'block' }}
+            />
+          </div>
+          {/* Cierre de Caja - derecha (atrás, 5% más pequeña = scale 0.70, 200px arriba) */}
+          <div style={{
+            position: 'absolute',
+            top: 'calc(10% - 200px)',
+            right: 'calc(5% + 80px)',
+            transform: 'scale(0.70)',
+            transformOrigin: 'top right',
+            zIndex: 5,
+          }}>
+            <img
+              src={imgCierreCaja}
+              alt="Panel de Cierre de Caja"
+              className="drop-shadow-warm-xl rounded-2xl opacity-100"
+              loading="eager"
+              style={{ objectFit: 'contain', display: 'block' }}
+            />
+          </div>
+        </div>
 
-            {/* COLUMNA DERECHA: 3 PANELES SOLAPADOS (imagen referencial) */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <div className="relative z-10">
-                <img
-                  src={panelGestion}
-                  alt="Vista de los paneles de Pedidos, Inventario y Cierre de caja de Flores Eternas"
-                  className="w-full max-w-xl mx-auto drop-shadow-warm-xl rounded-3xl"
-                  loading="lazy"
-                />
+        <div className="relative z-20 pt-10 lg:pt-16" style={{ paddingLeft: '11%', paddingRight: '8%' }}>
+          <div className="relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* COLUMNA IZQUIERDA: TEXTO - MISMO QUE HERO */}
+              <div className="lg:pr-0 text-center lg:text-left animate-fade-in-up mt-15" style={{ animationDelay: '100ms' }}>
+                <h1
+                  id="admin-title"
+                  className="font-lora text-vino text-5xl md:text-6xl lg:text-6xl leading-[1.05]"
+                >
+                  Administra
+                  <br />
+                  tu negocio
+                  <span
+                    className="block font-radley italic mt-1 whitespace-nowrap"
+                    style={{ color: '#fd465b' }}
+                  >
+                    sin complicaciones.
+                  </span>
+                </h1>
+                <Body
+                  size="lg"
+                  color="cafe-oscuro"
+                  className="!mt-6 !mb-0 max-w-md mx-auto lg:mx-0 text-center lg:text-left leading-relaxed"
+                >
+                  Lleva el control de tus pedidos, inventario
+                  <br />
+                  y cierre de caja desde una interfaz
+                  <br />
+                  simple e intuitiva
+                </Body>
               </div>
 
-              {/* Indicador visual de solape con tarjetas superpuestas decorativas */}
-              <div className="absolute -top-6 -right-4 lg:-top-8 lg:-right-6 w-64 h-48 bg-blanco/80 rounded-2xl shadow-warm border border-rosa-suave/30 rotate-3" aria-hidden="true" />
-              <div className="absolute bottom-8 -left-4 lg:bottom-10 lg:-left-6 w-56 h-40 bg-blanco/80 rounded-2xl shadow-warm border border-rosa-suave/30 -rotate-2" aria-hidden="true" />
+              {/* COLUMNA DERECHA: Espacio visual para que la imagen absolute se vea */}
+              <div className="relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                <div className="aspect-[4/3] lg:aspect-[3/2] w-full" />
+              </div>
             </div>
           </div>
-        </Container>
+        </div>
       </Section>
 
       {/* SECCIÓN: DISPONIBLE EN TODOS TUS DISPOSITIVOS */}

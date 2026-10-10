@@ -7,4 +7,5 @@ export { default as Container } from './Container';
 export { default as Heading } from './Heading';
 export { default as Body } from './Body';
 export { default as Price } from './Price';
-export { default as Badge, statusConfig } from './Badge';
+export { default as Badge } from './Badge';
+export { statusConfig } from './Badge.config';

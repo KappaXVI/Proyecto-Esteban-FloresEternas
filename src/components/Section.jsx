@@ -12,6 +12,7 @@ const Section = forwardRef(
     const variants = {
       default: 'section-padding',
       hero: 'relative min-h-screen flex items-center justify-center px-6 lg:px-20 overflow-hidden',
+      adminHero: 'relative min-h-screen flex items-center justify-center overflow-hidden',
       cta: 'section-padding',
       admin: 'section-padding bg-gradient-to-b from-crema via-crema to-rosa-suave/10',
       devices: 'section-padding bg-crema relative',
