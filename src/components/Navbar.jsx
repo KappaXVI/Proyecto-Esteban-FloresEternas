@@ -31,25 +31,22 @@ export default function Navbar() {
   return (
     <header className={`
       fixed top-0 left-0 right-0 z-50
-      min-h-[80px] lg:min-h-[104px]
+      h-20 lg:h-24
       flex items-center
       transition-all duration-300
       ${isScrolled ? 'bg-crema/95 backdrop-blur-sm shadow-warm' : 'bg-transparent'}
     `}>
-      <nav className="container-main px-6 h-full relative py-4 lg:py-6" aria-label="Navegación principal">
-        <div className="flex items-center justify-between h-full w-full">
-          {/* LINKS IZQUIERDA - alineado al borde izquierdo */}
-          <div className="hidden lg:flex items-center gap-6 lg:gap-10 min-w-[180px]">
+<nav className="w-full px-6 lg:px-[50px] h-full" aria-label="Navegación principal">
+<div className="hidden lg:grid grid-cols-[minmax(600px,1fr)_auto_minmax(600px,1fr)] items-center h-full">
+          {/* IZQUIERDA: Inicio, Funciones, Precios */}
+          <div className="hidden lg:flex items-center justify-center gap-8">
             {navLinks.slice(0, 3).map(({ label, href }) => (
               <NavLink key={label} label={label} href={href} isActive={location.pathname === href} />
             ))}
           </div>
 
-          {/* ESPACIADOR INVISIBLE - entre izquierda y centro */}
-          <div className="hidden lg:block w-[350px]" />
-
-          {/* LOGO CENTRADO - centrado automáticamente por justify-between */}
-          <div className="hidden lg:flex items-center lg:items-baseline shrink-0 px-[340px]">
+          {/* CENTRO: LOGO */}
+          <div className="flex items-center justify-center">
             <Link
               to="/"
               className="flex items-center"
@@ -58,17 +55,14 @@ export default function Navbar() {
               <img
                 src={logo}
                 alt=""
-                className="h-14 lg:h-20 w-auto"
+                className="h-14 lg:h-16 w-auto"
                 aria-hidden="true"
               />
             </Link>
           </div>
 
-          {/* ESPACIADOR INVISIBLE - entre centro y derecha */}
-          <div className="hidden lg:block w-[350px]" />
-
-          {/* LINKS DERECHA - alineado al borde derecho */}
-          <div className="hidden lg:flex items-center gap-6 lg:gap-10 ml-auto min-w-[140px]">
+          {/* DERECHA: Testimonios, Preguntas */}
+          <div className="hidden lg:flex items-center justify-center gap-8">
             {navLinks.slice(3).map(({ label, href }) => (
               <NavLink key={label} label={label} href={href} isActive={location.pathname === href} />
             ))}
@@ -76,7 +70,7 @@ export default function Navbar() {
         </div>
 
         {/* HAMBURGUESA MOBILE - logo a la izquierda, menú a la derecha */}
-        <div className="flex lg:hidden w-full justify-between items-center">
+        <div className="flex lg:hidden w-full justify-between items-center h-full">
           <img
             src={logo}
             alt="Flores Eternas"
@@ -100,6 +94,7 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
+        <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} location={location} />
       </nav>
     </header>
   );
