@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Navbar,
   Section,
@@ -15,7 +14,8 @@ const mesa1 = '/images/Mesa1.png';
 const superficieMesa = '/images/Superficie%20de%20mesa%20de%20madera%20pulida.png';
 const mesaInferior = '/images/MesaInferior.png';
 const panelGestion = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
-const logoImg = '/images/Logotipo%20Flores%20Eternas%20con%20Monograma%20LP.png';
+const fondoAdmin = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
+const fondoDevices = '/images/MesaInferior.png';
 
 const playIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -32,20 +32,6 @@ const arrowIcon = (
 const arrowRightIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
     <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-  </svg>
-);
-
-const roseIcon = (
-  <svg className="w-12 h-12 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-    <path d="M12 2C8 2 5 5 5 9c0 4 7 13 7 13s7-9 7-13c0-4-3-7-7-7z" />
-    <path d="M12 17V22" />
-    <path d="M9 15c0-2 2-3 3-3s3 1 3 3" />
-  </svg>
-);
-
-const petalIcon = (
-  <svg className="w-6 h-6 opacity-40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2C8 2 5 5 5 9c0 2.5 1.5 4.5 3 6 1.5-1.5 3-3.5 3-6C13 5 10 2 12 2z" />
   </svg>
 );
 
@@ -84,48 +70,49 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-crema/95 via-crema/60 to-transparent" />
         </div>
 
-        {/* Decoración floral superior derecha */}
-        <div className="absolute top-10 right-10 lg:top-20 lg:right-20 z-10 opacity-30" aria-hidden="true">
-          {roseIcon}
-        </div>
-
         <Container size="main" className="relative z-20">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* COLUMNA IZQUIERDA: TEXTO */}
-            <div className="lg:pr-8 text-center lg:text-left animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <Heading
+            <div
+              className="lg:pr-8 text-center lg:text-left animate-fade-in-up"
+              style={{ animationDelay: '100ms' }}
+            >
+              <h1
                 id="hero-title"
-                level={1}
-                italic
-                italicText="más fácil."
-                italicColor="rosa-suave"
-                className="text-vino mb-6"
+                className="font-lora text-vino text-5xl md:text-6xl lg:text-7xl leading-[1.05]"
               >
-                Tu negocio de flores eternas,
-              </Heading>
+                Tu negocio
+                <br />
+                de flores eternas,
+                <span
+                  className="block font-radley italic mt-1"
+                  style={{ color: '#fd465b' }}
+                >
+                  más fácil.
+                </span>
+              </h1>
+
               <Body
                 size="lg"
                 color="cafe-oscuro"
-                align="center"
-                className="lg:text-left max-w-xl mx-auto lg:mx-0 mb-10"
+                className="!mt-6 !mb-0 max-w-md mx-auto lg:mx-0 text-center lg:text-left"
               >
-                Gestiona tus pedidos, inventario y cierre de caja desde una sola plataforma. Diseñada para floristerías que quieren crecer sin complicaciones.
+                Gestiona tus pedidos, inventario y cierre de caja desde una sola
+                plataforma. Diseñada para floristerías que quieren crecer sin
+                complicaciones.
               </Body>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+              <div className="!mt-14  flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <ButtonPrimary
                   iconLeft={playIcon}
                   iconRight={arrowIcon}
                   className="w-full sm:w-auto"
-                  onClick={() => document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() =>
+                    document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })
+                  }
                 >
                   Ver cómo funciona
                 </ButtonPrimary>
-                <ButtonSecondary
-                  iconRight={arrowRightIcon}
-                  className="w-full sm:w-auto"
-                >
-                  Contactar
-                </ButtonSecondary>
               </div>
             </div>
 
@@ -151,28 +138,6 @@ export default function Home() {
                       loading="eager"
                     />
                   </div>
-
-                  {/* Celular pequeño al frente izquierda */}
-                  <div className="absolute bottom-8 left-4 lg:left-8 w-20 lg:w-28 drop-shadow-warm">
-                    <div className="bg-vino/90 rounded-xl p-1 aspect-[9/19] shadow-warm">
-                      <div className="bg-crema rounded-lg h-full flex items-center justify-center p-2">
-                        <span className="text-xs text-vino font-medium text-center">App</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Pétalos decorativos sobre la mesa */}
-                  <div className="absolute bottom-16 left-6 lg:bottom-20 lg:left-10" aria-hidden="true">
-                    {petalIcon}
-                  </div>
-                  <div className="absolute bottom-12 right-8 lg:bottom-16 lg:right-12 rotate-45" aria-hidden="true">
-                    {petalIcon}
-                  </div>
-                </div>
-
-                {/* Rosas decorativas esquina inferior izquierda */}
-                <div className="absolute -bottom-10 -left-6 lg:-bottom-14 lg:-left-8 opacity-60" aria-hidden="true">
-                  {roseIcon}
                 </div>
               </div>
             </div>
@@ -191,8 +156,19 @@ export default function Home() {
       </Section>
 
       {/* SECCIÓN: ADMINISTRA TU NEGOCIO */}
-      <Section variant="admin" id="administra" aria-labelledby="admin-title">
-        <Container size="main">
+      <Section variant="admin" id="administra" aria-labelledby="admin-title" className="relative">
+        {/* Fondo: Panel de gestión recortado + gradiente crema */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <img
+            src={fondoAdmin}
+            alt=""
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-crema via-crema to-rosa-suave/10" />
+        </div>
+
+        <Container size="main" className="relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* COLUMNA IZQUIERDA: TEXTO */}
             <div className="animate-fade-in-up">
@@ -231,8 +207,19 @@ export default function Home() {
       </Section>
 
       {/* SECCIÓN: DISPONIBLE EN TODOS TUS DISPOSITIVOS */}
-      <Section variant="devices" id="dispositivos" aria-labelledby="devices-title">
-        <Container size="main">
+      <Section variant="devices" id="dispositivos" aria-labelledby="devices-title" className="relative">
+        {/* Fondo: Mesa inferior recortada + crema */}
+        <div className="absolute inset-0 z-0" aria-hidden="true">
+          <img
+            src={fondoDevices}
+            alt=""
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-crema/90" />
+        </div>
+
+        <Container size="main" className="relative z-10">
           <div className="text-center mb-16 lg:mb-20 animate-fade-in-up">
             <Heading
               id="devices-title"
@@ -255,13 +242,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Rosas decorativas difuminadas en el fondo */}
-          <div className="absolute top-20 left-10 lg:top-32 lg:left-20 w-48 h-48 opacity-10" aria-hidden="true">
-            {roseIcon}
-          </div>
-          <div className="absolute bottom-20 right-10 lg:bottom-32 lg:right-20 w-40 h-40 opacity-10" aria-hidden="true">
-            {roseIcon}
-          </div>
         </Container>
       </Section>
 
@@ -300,24 +280,6 @@ export default function Home() {
           </div>
         </Container>
       </Section>
-
-      {/* FOOTER SIMPLE */}
-      <footer className="bg-crema border-t border-gris-claro py-12 px-6" role="contentinfo">
-        <Container size="main">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <Link to="/" className="flex items-center gap-2" aria-label="Flores Eternas - Inicio">
-              <img src={logoImg} alt="" className="h-10 w-auto" aria-hidden="true" />
-            </Link>
-            <p className="text-cafe-medio text-sm text-center md:text-left">
-              © 2024 Flores Eternas. Todos los derechos reservados.
-            </p>
-            <nav className="flex gap-6" aria-label="Enlaces legales">
-              <Link to="/privacidad" className="text-cafe-medio text-sm hover:text-vino transition-colors">Privacidad</Link>
-              <Link to="/terminos" className="text-cafe-medio text-sm hover:text-vino transition-colors">Términos</Link>
-            </nav>
-          </div>
-        </Container>
-      </footer>
     </>
   );
 }

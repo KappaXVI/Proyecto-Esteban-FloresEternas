@@ -28,6 +28,9 @@ const Heading = forwardRef(
       rosa: 'text-rosa-suave',
     };
 
+    const isCustomColor = italicColor.startsWith('#');
+    const italicClassName = isCustomColor ? '' : `text-${italicColor}`;
+
     return (
       <Component
         ref={ref}
@@ -42,7 +45,7 @@ const Heading = forwardRef(
         {italic && italicText ? (
           <>
             {children}
-            <span className={`italic-radley text-${italicColor} relative`}>
+            <span className={`italic-radley relative ${italicClassName}`} style={isCustomColor ? { color: italicColor } : undefined}>
               {' '}{italicText}
             </span>
           </>
