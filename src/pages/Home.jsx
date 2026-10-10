@@ -70,15 +70,15 @@ export default function Home() {
 
         {/* Imagen compuesta gigante - FUERA del Container, sin límite lateral */}
         <div className="absolute z-[5] pointer-events-none" aria-hidden="true"
-             style={{
-               top: '64%',
-               left: '62%',
-               transform: 'translate(-50%, -50%)',
-               width: '90%',
-               height: '90%',
-               maxWidth: 'none',
-               maxHeight: 'none',
-             }}>
+          style={{
+            top: '64%',
+            left: '62%',
+            transform: 'translate(-50%, -50%)',
+            width: '90%',
+            height: '90%',
+            maxWidth: 'none',
+            maxHeight: 'none',
+          }}>
           <img
             src={primeraImagen}
             alt=""
@@ -90,12 +90,12 @@ export default function Home() {
 
         {/* Flor1 - ramo en esquina inferior izquierda - 15% más pequeña que 30% extra */}
         <div className="absolute z-[6] pointer-events-none" aria-hidden="true"
-             style={{
-               bottom: '-8%',
-               left: '-4%',
-               width: '31%',
-               maxWidth: 'none',
-             }}>
+          style={{
+            bottom: '-8%',
+            left: '-4%',
+            width: '31%',
+            maxWidth: 'none',
+          }}>
           <img
             src={flor1}
             alt=""
@@ -105,14 +105,20 @@ export default function Home() {
           />
         </div>
 
-        <Container size="main" className="relative z-20 pt-10 lg:pt-16 px-[50px] lg:px-[50px] max-w-none">
+        <div
+          className="relative z-20 pt-24 pb-16 lg:pt-32 lg:pb-24"
+          style={{ paddingLeft: '11%', paddingRight: '3%' }}
+        >
           <div className="relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* COLUMNA IZQUIERDA: TEXTO */}
-              <div className="lg:pr-0 text-center lg:text-left animate-fade-in-up mt-15" style={{ animationDelay: '100ms' }}>
+              <div
+                className="lg:pr-0 text-center lg:text-left animate-fade-in-up"
+                style={{ animationDelay: '100ms', position: 'relative', top: '-90px', left: '-230px' }}
+              >
                 <h1
                   id="hero-title"
-                  className="font-lora text-vino text-5xl md:text-6xl lg:text-6xl leading-[1.05]"
+                  className="font-lora text-vino text-5xl xl:text-6xl leading-[1.05]"
                 >
                   Tu negocio
                   <br />
@@ -135,7 +141,7 @@ export default function Home() {
                   complicaciones.
                 </Body>
 
-                <div className="!mt-14  flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <div className="!mt-14 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <ButtonPrimary
                     iconLeft={playIcon}
                     iconRight={arrowIcon}
@@ -155,7 +161,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </Container>
+        </div>
 
         {/* Flecha scroll - overlap 20px a siguiente sección */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 animate-bounce" aria-hidden="true">
@@ -169,7 +175,7 @@ export default function Home() {
       </Section>
 
       {/* SECCIÓN: ADMINISTRA TU NEGOCIO */}
-      <Section variant="adminHero" id="administra" aria-labelledby="admin-title" className="relative">
+      <Section variant="adminHero" id="administra" aria-labelledby="admin-title" className="relative overflow-hidden">
         {/* Fondo: Fondo2.png */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <img
@@ -178,109 +184,82 @@ export default function Home() {
             className="w-full h-full object-cover"
             loading="lazy"
           />
-          {/* Difuminado intenso hacia la izquierda (desde donde están las imágenes) */}
-          <div className="absolute inset-0 bg-gradient-to-l from-crema/95 via-crema/70 to-transparent" />
         </div>
 
-        {/* Tres tarjetas UI - ABSOLUTAS, fuera del Container (estilo Hero) - Tamaño original al 50% */}
-        <div className="absolute z-[5] pointer-events-none" aria-hidden="true"
-             style={{
-               top: '64%',
-               left: '62%',
-               transform: 'translate(-50%, -50%)',
-               width: '85%',
-               height: '85%',
-               maxWidth: 'none',
-               maxHeight: 'none',
-             }}>
-          {/* Pedidos - izquierda (delante) */}
-          <div style={{
-            position: 'absolute',
-            top: '10%',
-            left: '36%',
-            transform: 'scale(0.6)',
-            transformOrigin: 'top left',
-            zIndex: 10,
-          }}>
-            <img
-              src={imgPedidos}
-              alt="Panel de Pedidos"
-              className="drop-shadow-warm-xl rounded-2xl opacity-100"
-              loading="eager"
-              style={{ objectFit: 'contain', display: 'block' }}
-            />
-          </div>
-          {/* Inventario - centro (delante) */}
-          <div style={{
-            position: 'absolute',
-            top: '350px',
-            left: '52%',
-            transform: 'scale(0.6)',
-            transformOrigin: 'top center',
-            zIndex: 10,
-          }}>
-            <img
-              src={imgInventario}
-              alt="Panel de Inventario"
-              className="drop-shadow-warm-xl rounded-2xl opacity-100"
-              loading="eager"
-              style={{ objectFit: 'contain', display: 'block' }}
-            />
-          </div>
-          {/* Cierre de Caja - derecha (atrás, 5% más pequeña = scale 0.70, 200px arriba) */}
-          <div style={{
-            position: 'absolute',
-            top: 'calc(10% - 200px)',
-            right: 'calc(5% + 80px)',
-            transform: 'scale(0.70)',
-            transformOrigin: 'top right',
-            zIndex: 5,
-          }}>
-            <img
-              src={imgCierreCaja}
-              alt="Panel de Cierre de Caja"
-              className="drop-shadow-warm-xl rounded-2xl opacity-100"
-              loading="eager"
-              style={{ objectFit: 'contain', display: 'block' }}
-            />
-          </div>
-        </div>
-
-        <div className="relative z-20 pt-10 lg:pt-16" style={{ paddingLeft: '11%', paddingRight: '8%' }}>
-          <div className="relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* COLUMNA IZQUIERDA: TEXTO - MISMO QUE HERO */}
-              <div className="lg:pr-0 text-center lg:text-left animate-fade-in-up mt-15" style={{ animationDelay: '100ms' }}>
-                <h1
-                  id="admin-title"
-                  className="font-lora text-vino text-5xl md:text-6xl lg:text-6xl leading-[1.05]"
+        <div
+          className="relative z-20 pt-24 pb-16 lg:pt-32 lg:pb-24"
+          style={{ paddingLeft: '11%', paddingRight: '3%' }}
+        >
+          <div className="grid lg:grid-cols-[minmax(0,36%)_minmax(0,64%)] gap-12 lg:gap-0 items-center">
+            {/* COLUMNA IZQUIERDA: TEXTO */}
+            <div
+              className="relative z-30 text-center lg:text-left animate-fade-in-up"
+              style={{ animationDelay: '100ms', position: 'relative', top: '-90px', left: '-45px' }}
+            >
+              <h1
+                id="admin-title"
+                className="font-lora text-vino text-5xl xl:text-6xl leading-[1.05]"
+              >
+                Administra
+                <br />
+                tu negocio
+                <span
+                  className="block font-radley italic mt-1 lg:whitespace-nowrap"
+                  style={{ color: '#fd465b' }}
                 >
-                  Administra
-                  <br />
-                  tu negocio
-                  <span
-                    className="block font-radley italic mt-1 whitespace-nowrap"
-                    style={{ color: '#fd465b' }}
-                  >
-                    sin complicaciones.
-                  </span>
-                </h1>
-                <Body
-                  size="lg"
-                  color="cafe-oscuro"
-                  className="!mt-6 !mb-0 max-w-md mx-auto lg:mx-0 text-center lg:text-left leading-relaxed"
-                >
-                  Lleva el control de tus pedidos, inventario
-                  <br />
-                  y cierre de caja desde una interfaz
-                  <br />
-                  simple e intuitiva
-                </Body>
-              </div>
+                  sin complicaciones.
+                </span>
+              </h1>
 
-              {/* COLUMNA DERECHA: Espacio visual para que la imagen absolute se vea */}
-              <div className="relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <div className="aspect-[4/3] lg:aspect-[3/2] w-full" />
+              <Body
+                size="lg"
+                color="cafe-oscuro"
+                className="!mt-6 !mb-0 max-w-md mx-auto lg:mx-0 text-center lg:text-left leading-relaxed"
+              >
+                Lleva el control de tus pedidos, inventario
+                <br />
+                y cierre de caja desde una interfaz
+                <br />
+                simple e intuitiva.
+              </Body>
+            </div>
+
+            {/* COLUMNA DERECHA: Pedidos a la derecha, Inventario y Cierre tapándola */}
+            <div
+              className="relative w-full min-w-0 animate-fade-in-up"
+              style={{ animationDelay: '300ms' }}
+            >
+              {/* Pedidos */}
+              <img
+                src={imgPedidos}
+                alt="Panel de Pedidos de Flores Eternas"
+                className="relative z-10 block w-full lg:w-[95%] ml-auto rounded-3xl drop-shadow-warm-xl"
+                loading="eager"
+              />
+
+              {/* Inventario y Cierre: misma ALTURA, ancho natural, salen por izquierda y un poco por la derecha */}
+              <div
+                className="relative z-20 flex items-start gap-3"
+                style={{
+                  width: 'max-content',
+                  marginLeft: '-8%',
+                  marginTop: 'calc(-9% - 130px)',
+                }}
+              >
+                <img
+                  src={imgInventario}
+                  alt="Panel de Inventario de Flores Eternas"
+                  className="block h-auto w-auto max-w-none rounded-3xl drop-shadow-warm-xl"
+                  style={{ height: '14vw' }}
+                  loading="eager"
+                />
+                <img
+                  src={imgCierreCaja}
+                  alt="Panel de Cierre de caja de Flores Eternas"
+                  className="block h-auto w-auto max-w-none rounded-3xl drop-shadow-warm-xl"
+                  style={{ height: '14vw' }}
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
