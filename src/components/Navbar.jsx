@@ -31,12 +31,12 @@ export default function Navbar() {
   return (
     <header className={`
       fixed top-0 left-0 right-0 z-50
-      min-h-[80px] lg:min-h-[100px]
+      min-h-[80px] lg:min-h-[104px]
       flex items-center
       transition-all duration-300
       ${isScrolled ? 'bg-crema/95 backdrop-blur-sm shadow-warm' : 'bg-transparent'}
     `}>
-      <nav className="container-main px-6 h-full relative" aria-label="Navegación principal">
+      <nav className="container-main px-6 h-full relative py-4 lg:py-6" aria-label="Navegación principal">
         <div className="flex items-center justify-between h-full w-full">
           {/* LINKS IZQUIERDA - alineado al borde izquierdo */}
           <div className="hidden lg:flex items-center gap-6 lg:gap-10 min-w-[180px]">
@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="hidden lg:block w-[350px]" />
 
           {/* LOGO CENTRADO - centrado automáticamente por justify-between */}
-          <div className="hidden lg:flex items-center lg:items-baseline shrink-0 px-[350px]">
+          <div className="hidden lg:flex items-center lg:items-baseline shrink-0 px-[340px]">
             <Link
               to="/"
               className="flex items-center"
@@ -113,13 +113,12 @@ function NavLink({ label, href }) {
     <Link
       to={href}
       className={`
-        font-poppins text-sm font-medium transition-colors duration-200
+        font-poppins text-sm transition-colors duration-200
         relative py-1.5 px-1
         ${active
-          ? 'text-vino'
-          : 'text-cafe-oscuro hover:text-vino'
+          ? 'text-vino font-bold'
+          : 'text-cafe-oscuro hover:text-vino font-medium'
         }
-        ${active ? 'after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-5 after:h-0.5 after:bg-vino after:rounded-full' : ''}
       `}
       aria-current={active ? 'page' : undefined}
     >

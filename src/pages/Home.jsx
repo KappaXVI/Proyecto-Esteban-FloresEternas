@@ -10,12 +10,12 @@ import {
 } from '../components';
 
 const fondoHero = '/images/Fondo.png';
-const mesa1 = '/images/Mesa1.png';
-const superficieMesa = '/images/Superficie%20de%20mesa%20de%20madera%20pulida.png';
 const mesaInferior = '/images/MesaInferior.png';
 const panelGestion = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
 const fondoAdmin = '/images/Panel%20de%20gesti%C3%B3n%20floral%20elegante.png';
 const fondoDevices = '/images/MesaInferior.png';
+const flor1 = '/images/Flor1.png';
+const primeraImagen = '/images/PrimeraImagen.png';
 
 const playIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -59,7 +59,7 @@ export default function Home() {
         aria-labelledby="hero-title"
         className="relative"
       >
-        {/* Fondo: Imagen rosas con ventana + gradiente crema izquierda */}
+        {/* Fondo: Imagen rosas con ventana + gradiente crema suave hacia el texto */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <img
             src={fondoHero}
@@ -67,86 +67,106 @@ export default function Home() {
             className="w-full h-full object-cover"
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-crema/95 via-crema/60 to-transparent" />
+          {/* Gradiente suave desde la izquierda hacia la derecha para legibilidad */}
+          <div className="absolute inset-0 bg-gradient-to-r from-crema/66 via-crema/42 to-transparent" />
+          {/* Difuminado suave alrededor del título "Tu negocio" */}
+          <div className="absolute top-1/3 left-1/4 lg:top-1/3 lg:left-1/6 w-96 h-96 lg:w-[400px] lg:h-[400px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-crema/42 to-transparent rounded-full pointer-events-none" />
+          {/* Difuminado suave alrededor del botón "Ver cómo funciona" */}
+          <div className="absolute bottom-20 left-1/4 lg:bottom-20 lg:left-1/6 w-64 h-64 lg:w-[300px] lg:h-[300px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-crema/35 to-transparent rounded-full pointer-events-none" />
         </div>
 
-        <Container size="main" className="relative z-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* COLUMNA IZQUIERDA: TEXTO */}
-            <div
-              className="lg:pr-8 text-center lg:text-left animate-fade-in-up"
-              style={{ animationDelay: '100ms' }}
-            >
-              <h1
-                id="hero-title"
-                className="font-lora text-vino text-5xl md:text-6xl lg:text-7xl leading-[1.05]"
-              >
-                Tu negocio
-                <br />
-                de flores eternas,
-                <span
-                  className="block font-radley italic mt-1"
-                  style={{ color: '#fd465b' }}
+        {/* Imagen compuesta gigante - FUERA del Container, sin límite lateral */}
+        <div className="absolute z-[5] pointer-events-none" aria-hidden="true"
+             style={{
+               top: '64%',
+               left: '62%',
+               transform: 'translate(-50%, -50%)',
+               width: '90%',
+               height: '90%',
+               maxWidth: 'none',
+               maxHeight: 'none',
+             }}>
+          <img
+            src={primeraImagen}
+            alt=""
+            className="w-full h-full drop-shadow-warm-2xl opacity-100"
+            loading="eager"
+            style={{ objectFit: 'contain' }}
+          />
+        </div>
+
+        {/* Flor1 - ramo en esquina inferior izquierda - 15% más pequeña que 30% extra */}
+        <div className="absolute z-[6] pointer-events-none" aria-hidden="true"
+             style={{
+               bottom: '-8%',
+               left: '-4%',
+               width: '31%',
+               maxWidth: 'none',
+             }}>
+          <img
+            src={flor1}
+            alt=""
+            className="w-full h-auto drop-shadow-warm-xl opacity-90"
+            loading="eager"
+            style={{ objectFit: 'contain' }}
+          />
+        </div>
+
+        <Container size="main" className="relative z-20 pt-10 lg:pt-16 px-[50px] lg:px-[50px] max-w-none">
+          <div className="relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* COLUMNA IZQUIERDA: TEXTO */}
+              <div className="lg:pr-0 text-center lg:text-left animate-fade-in-up mt-15" style={{ animationDelay: '100ms' }}>
+                <h1
+                  id="hero-title"
+                  className="font-lora text-vino text-5xl md:text-6xl lg:text-6xl leading-[1.05]"
                 >
-                  más fácil.
-                </span>
-              </h1>
+                  Tu negocio
+                  <br />
+                  de flores eternas,
+                  <span
+                    className="block font-radley italic mt-1"
+                    style={{ color: '#fd465b' }}
+                  >
+                    más fácil.
+                  </span>
+                </h1>
 
-              <Body
-                size="lg"
-                color="cafe-oscuro"
-                className="!mt-6 !mb-0 max-w-md mx-auto lg:mx-0 text-center lg:text-left"
-              >
-                Gestiona tus pedidos, inventario y cierre de caja desde una sola
-                plataforma. Diseñada para floristerías que quieren crecer sin
-                complicaciones.
-              </Body>
-
-              <div className="!mt-14  flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <ButtonPrimary
-                  iconLeft={playIcon}
-                  iconRight={arrowIcon}
-                  className="w-full sm:w-auto"
-                  onClick={() =>
-                    document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })
-                  }
+                <Body
+                  size="lg"
+                  color="cafe-oscuro"
+                  className="!mt-6 !mb-0 max-w-sm mx-auto lg:mx-0 text-center lg:text-left"
                 >
-                  Ver cómo funciona
-                </ButtonPrimary>
-              </div>
-            </div>
+                  Gestiona tus pedidos, inventario y cierre de caja desde una sola
+                  plataforma. Diseñada para floristerías que quieren crecer sin
+                  complicaciones.
+                </Body>
 
-            {/* COLUMNA DERECHA: VISUAL - Laptop + Celular sobre madera */}
-            <div className="relative lg:pl-4 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-              <div className="relative -mt-5 lg:-mt-10 z-20">
-                {/* Superficie de mesa de madera */}
-                <div className="relative">
-                  <img
-                    src={superficieMesa}
-                    alt=""
-                    className="w-full max-w-lg mx-auto block"
-                    aria-hidden="true"
-                    loading="eager"
-                  />
-
-                  {/* Laptop principal (Mesa1) */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 lg:translate-y-8 w-[85%] max-w-md">
-                    <img
-                      src={mesa1}
-                      alt="Laptop mostrando la tienda pública de Flores Eternas"
-                      className="w-full drop-shadow-warm-lg"
-                      loading="eager"
-                    />
-                  </div>
+                <div className="!mt-14  flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <ButtonPrimary
+                    iconLeft={playIcon}
+                    iconRight={arrowIcon}
+                    className="w-full sm:w-auto"
+                    onClick={() =>
+                      document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  >
+                    Ver cómo funciona
+                  </ButtonPrimary>
                 </div>
+              </div>
+
+              {/* COLUMNA DERECHA: Espacio visual para que la imagen de fondo se vea */}
+              <div className="relative animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                <div className="aspect-[4/3] lg:aspect-[3/2] w-full" />
               </div>
             </div>
           </div>
         </Container>
 
         {/* Flecha scroll - overlap 20px a siguiente sección */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 animate-bounce" aria-hidden="true">
-          <svg className="w-8 h-8 text-vino/60 hover:text-vino transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 animate-bounce" aria-hidden="true">
+          <svg className="w-8 h-8 text-vino hover:text-rosa-suave transition-colors drop-shadow-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
