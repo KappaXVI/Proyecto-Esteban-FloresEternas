@@ -7,12 +7,14 @@ import {
   Body,
   ButtonPrimary,
   ButtonSecondary,
+  CTA,
 } from '../components';
 
 const fondoHero = '/images/Fondo.png';
 const mesaInferior = '/images/MesaInferior.png';
 const fondo2 = '/images/Fondo2.png';
 const fondoDevices = '/images/MesaInferior.png';
+const fondo3 = '/images/Fondo3.png';
 const flor1 = '/images/Flor1.png';
 const primeraImagen = '/images/PrimeraImagen.png';
 const imgPedidos = '/images/Pedidos.png';
@@ -28,12 +30,6 @@ const playIcon = (
 const arrowIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-  </svg>
-);
-
-const arrowRightIcon = (
-  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
   </svg>
 );
 
@@ -176,7 +172,7 @@ export default function Home() {
 
       {/* SECCIÓN: ADMINISTRA TU NEGOCIO */}
       <Section variant="adminHero" id="administra" aria-labelledby="admin-title" className="relative overflow-hidden">
-        {/* Fondo: Fondo2.png */}
+        {/* Fondo: Fondo2.png + gradientes legibilidad (origen inf-izq → sup-der) */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
           <img
             src={fondo2}
@@ -184,6 +180,30 @@ export default function Home() {
             className="w-full h-full object-cover"
             loading="lazy"
           />
+          {/* Capa 1: Gradiente base diagonal inf-izq (nítido) → sup-der (máx. opacidad) */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-crema/15 to-crema/55" />
+          {/* Capa 1b: Refuerzo lateral derecho (zona paneles) - gradiente horizontal */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-crema/5 to-crema/35" />
+          {/* Capa 2: Spotlight zona texto (inf-izq, mismo patrón que hero título) */}
+          <div className="absolute bottom-1/3 left-1/6 lg:bottom-1/3 lg:left-1/6 w-96 h-96 lg:w-[400px] lg:h-[400px] -translate-x-1/2 translate-y-1/2 bg-gradient-to-tr from-crema/30 via-crema/10 to-transparent rounded-full pointer-events-none" />
+          {/* Capa 3: Refuerzo esquina sup-der (máximo desenfoque visual) */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] lg:w-[600px] lg:h-[600px] bg-gradient-to-bl from-crema/35 via-crema/15 to-transparent rounded-full pointer-events-none" />
+          {/* Flor2 - ramo en esquina inferior izquierda */}
+          <div className="absolute z-[6] pointer-events-none" aria-hidden="true"
+            style={{
+              bottom: '-8%',
+              left: '-4%',
+              width: '31%',
+              maxWidth: 'none',
+            }}>
+            <img
+              src="/images/Flor2.png"
+              alt=""
+              className="w-full h-auto drop-shadow-warm-xl opacity-90"
+              loading="eager"
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </div>
 
         <div
@@ -267,79 +287,106 @@ export default function Home() {
       </Section>
 
       {/* SECCIÓN: DISPONIBLE EN TODOS TUS DISPOSITIVOS */}
-      <Section variant="devices" id="dispositivos" aria-labelledby="devices-title" className="relative">
-        {/* Fondo: Mesa inferior recortada + crema */}
+      <Section
+        variant="hero"
+        id="dispositivos"
+        aria-labelledby="devices-title"
+        className="relative overflow-hidden"
+        style={{ clipPath: 'inset(0 0 90px 0)', marginBottom: '-90px' }}
+      >
+        {/* Fondo: cubre toda la sección */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
-          <img
-            src={fondoDevices}
-            alt=""
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-crema/90" />
+          <img src={fondo3} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-crema/10 to-crema/40" />
+          <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-crema/10 to-crema/40" />
         </div>
 
-        <Container size="main" className="relative z-10">
-          <div className="text-center mb-16 lg:mb-20 animate-fade-in-up">
-            <Heading
-              id="devices-title"
-              level={2}
-              className="text-vino mb-6"
-            >
-              Disponible en todos tus dispositivos
-            </Heading>
-            <Body size="lg" color="cafe-oscuro" align="center" className="max-w-2xl mx-auto">
-              Accede desde tu computador, tablet o celular. Tu negocio siempre contigo, en tiempo real.
-            </Body>
-          </div>
-
-          <div className="relative animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            <img
-              src={mesaInferior}
-              alt="Composición de monitor de escritorio, laptop y celular con ramos de rosas a los lados"
-              className="w-full max-w-5xl mx-auto drop-shadow-warm-xl rounded-3xl"
-              loading="lazy"
-            />
-          </div>
-
-        </Container>
-      </Section>
-
-      {/* CTA FINAL BANNER */}
-      <Section variant="cta" id="cta" aria-labelledby="cta-title" className="relative">
-        <div className="absolute inset-0 bg-vino rounded-5xl overflow-hidden" aria-hidden="true">
-          {/* Textura floral sutil */}
-          <div className="absolute inset-0 opacity-5" style={{ backgroundImage: `url(${fondoHero})` }} />
-          <div className="absolute inset-0 bg-gradient-to-br from-vino/90 via-vino to-vino-hover" />
-        </div>
-
-        <Container size="main" className="relative z-10">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12 py-12 lg:py-16">
-            <div className="text-center lg:text-left animate-fade-in-up">
-              <Heading
-                id="cta-title"
-                level={2}
-                className="text-crema mb-4"
+        <div
+          className="relative z-20"
+          style={{ paddingTop: '64px', paddingBottom: '48px', paddingLeft: '8%', paddingRight: '6%' }}
+        >
+          <div className="grid lg:grid-cols-[minmax(0,40%)_minmax(0,60%)] gap-8 lg:gap-6 items-center">
+            {/* TEXTO */}
+            <div className="relative z-30 text-center lg:text-left animate-fade-in-up -translate-y-[150px]" style={{ animationDelay: '100ms' }}>
+              <h2 id="devices-title" className="font-lora text-vino text-5xl xl:text-6xl leading-[1.05]">
+                Disponible en
+                <br />
+                todos tus dispositivos.
+              </h2>
+              <Body
+                size="lg"
+                color="cafe-oscuro"
+                className="!mt-6 !mb-0 max-w-sm mx-auto lg:mx-0 text-center lg:text-left"
               >
-                ¿Lista para hacer crecer tu floristería?
-              </Heading>
-              <Body size="lg" color="crema" align="center" className="lg:text-left max-w-xl mx-auto lg:mx-0 opacity-90">
-                Descubre todo lo que puedes hacer con Flores Eternas.
+                Accede desde tu computador, tablet o celular. Tu negocio siempre contigo, en tiempo real.
               </Body>
             </div>
 
-            <div className="flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <ButtonSecondary
-                iconRight={arrowRightIcon}
-                variant="white"
-                className="px-4 py-2 text-lg"
-              >
-                Conocer la plataforma
-              </ButtonSecondary>
+            {/* IMAGEN (la ajustas tú) */}
+            <div className="relative z-10 animate-fade-in-up -translate-x-[80px] scale-155" style={{ animationDelay: '300ms' }}>
+              <img
+                src={mesaInferior}
+                alt="Composición de monitor de escritorio, laptop y celular con ramos de rosas a los lados"
+                className="w-full mx-auto drop-shadow-warm-xl"
+                loading="lazy"
+              />
             </div>
           </div>
-        </Container>
+
+          {/* CTA */}
+          <CTA
+            size="sm"
+            title="¿Lista para hacer crecer<br />tu negocio de flores eternas?"
+            titleSize="!text-2xl md:!text-3xl"
+            animationDelay="400ms"
+            className="mt-10"
+            style={{ maxWidth: '1550px', padding: '20px 32px' }}
+          />
+        </div>
       </Section>
+      {/* FOOTER */}
+{/* FOOTER */}
+<footer
+  className="relative bg-vino text-crema"
+  style={{ zIndex: 1, padding: '48px 8% 32px 8%' }}
+>
+  <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16">
+    {/* Marca + descripción */}
+    <div className="text-center lg:text-left">
+      <p className="font-lora text-3xl">Flores Eternas</p>
+      <p className="text-sm opacity-80 mt-2 max-w-md mx-auto lg:mx-0">
+        Plataforma web para gestionar pedidos, inventario y cierre de caja,
+        diseñada para floristerías que quieren crecer sin complicaciones.
+      </p>
+    </div>
+
+    {/* Tecnologías */}
+    <div className="text-center lg:text-left">
+      <p className="text-xs uppercase tracking-widest opacity-70 mb-3">
+        Construido con
+      </p>
+      <ul className="flex flex-wrap justify-center lg:justify-start gap-2">
+        {['React', 'Tailwind CSS', 'JavaScript', 'Vite', 'Node.js'].map((tech) => (
+          <li
+            key={tech}
+            className="text-sm px-3 py-1 rounded-full border border-crema/30 bg-crema/10"
+          >
+            {tech}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  {/* Línea inferior */}
+  <div className="mt-8 pt-5 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-3 text-xs opacity-80">
+    <p>© 2026 Flores Eternas. Todos los derechos reservados.</p>
+    <nav aria-label="Enlaces legales" className="flex gap-5">
+      <a href="#" className="hover:underline">Términos y condiciones</a>
+      <a href="#" className="hover:underline">Política de privacidad</a>
+    </nav>
+  </div>
+</footer>
     </>
   );
 }
