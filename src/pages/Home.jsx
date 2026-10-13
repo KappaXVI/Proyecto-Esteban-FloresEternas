@@ -2,12 +2,9 @@ import { useRef } from 'react';
 import {
   Navbar,
   Section,
-  Container,
-  Heading,
   Body,
   ButtonPrimary,
   ButtonSecondary,
-  CTA,
 } from '../components';
 
 const fondoHero = '/images/Fondo.png';
@@ -20,6 +17,12 @@ const primeraImagen = '/images/PrimeraImagen.png';
 const imgPedidos = '/images/Pedidos.png';
 const imgInventario = '/images/Inventario.png';
 const imgCierreCaja = '/images/CierreCaja.jpeg';
+
+const arrowRightIcon = (
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+  </svg>
+);
 
 const playIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -292,7 +295,7 @@ export default function Home() {
         id="dispositivos"
         aria-labelledby="devices-title"
         className="relative overflow-hidden"
-        style={{ clipPath: 'inset(0 0 90px 0)', marginBottom: '-90px' }}
+        style={{ clipPath: 'inset(0 0 90px 0)', marginBottom: '-215px' }}
       >
         {/* Fondo: cubre toda la sección */}
         <div className="absolute inset-0 z-0" aria-hidden="true">
@@ -332,61 +335,52 @@ export default function Home() {
               />
             </div>
           </div>
-
-          {/* CTA */}
-          <CTA
-            size="sm"
-            title="¿Lista para hacer crecer<br />tu negocio de flores eternas?"
-            titleSize="!text-2xl md:!text-3xl"
-            animationDelay="400ms"
-            className="mt-10"
-            style={{ maxWidth: '1550px', padding: '20px 32px' }}
-          />
         </div>
       </Section>
+
       {/* FOOTER */}
-{/* FOOTER */}
-<footer
-  className="relative bg-vino text-crema"
-  style={{ zIndex: 1, padding: '48px 8% 32px 8%' }}
->
-  <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16">
-    {/* Marca + descripción */}
-    <div className="text-center lg:text-left">
-      <p className="font-lora text-3xl">Flores Eternas</p>
-      <p className="text-sm opacity-80 mt-2 max-w-md mx-auto lg:mx-0">
-        Plataforma web para gestionar pedidos, inventario y cierre de caja,
-        diseñada para floristerías que quieren crecer sin complicaciones.
-      </p>
-    </div>
+      <footer
+        className="relative bg-vino text-crema"
+        style={{ zIndex: 1, padding: '56px 8% 32px 8%' }}
+      >
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div className="text-center lg:text-left">
+            <h2 className="font-lora text-3xl xl:text-4xl leading-[1.1]">
+              ¿Lista para hacer crecer
+              <br />
+              tu negocio de flores eternas?
+            </h2>
+            <p className="text-base opacity-90 mt-3">
+              Descubre todo lo que puedes hacer con Flores Eternas.
+            </p>
+          </div>
 
-    {/* Tecnologías */}
-    <div className="text-center lg:text-left">
-      <p className="text-xs uppercase tracking-widest opacity-70 mb-3">
-        Construido con
-      </p>
-      <ul className="flex flex-wrap justify-center lg:justify-start gap-2">
-        {['React', 'Tailwind CSS', 'JavaScript', 'Vite', 'Node.js'].map((tech) => (
-          <li
-            key={tech}
-            className="text-sm px-3 py-1 rounded-full border border-crema/30 bg-crema/10"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
+          <div className="flex justify-center lg:justify-end shrink-0">
+            <ButtonSecondary iconRight={arrowRightIcon} variant="white" className="whitespace-nowrap">
+              Conocer la plataforma
+            </ButtonSecondary>
+          </div>
+        </div>
 
-  {/* Línea inferior */}
-  <div className="mt-8 pt-5 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-3 text-xs opacity-80">
-    <p>© 2026 Flores Eternas. Todos los derechos reservados.</p>
-    <nav aria-label="Enlaces legales" className="flex gap-5">
-      <a href="#" className="hover:underline">Términos y condiciones</a>
-      <a href="#" className="hover:underline">Política de privacidad</a>
-    </nav>
-  </div>
-</footer>
+        {/* Línea inferior: derechos + tecnologías */}
+        <div className="mt-10 pt-5 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs">
+          <p className="opacity-80">© 2026 Flores Eternas. Todos los derechos reservados.</p>
+
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span className="uppercase tracking-widest opacity-70">Construido con</span>
+            <ul className="flex flex-wrap justify-center gap-2">
+              {['React', 'Tailwind CSS', 'JavaScript', 'Vite', 'Node.js'].map((tech) => (
+                <li
+                  key={tech}
+                  className="px-2.5 py-0.5 rounded-full border border-crema/30 bg-crema/10"
+                >
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

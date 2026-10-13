@@ -8,5 +8,5 @@ export { default as Heading } from './Heading';
 export { default as Body } from './Body';
 export { default as Price } from './Price';
 export { default as Badge } from './Badge';
-export { default as CTA } from './CTA';
+export { default as ContenedorBoton } from './ContenedorBoton';
 export { statusConfig } from './Badge.config';

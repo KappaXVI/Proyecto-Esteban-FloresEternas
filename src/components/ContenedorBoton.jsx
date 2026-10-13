@@ -50,7 +50,7 @@ const variantStyles = {
   hero: 'w-full flex flex-col lg:flex-row lg:items-center justify-between',
 };
 
-const CTA = forwardRef(
+const ContenedorBoton = forwardRef(
   ({
     title = '¿Lista para hacer crecer<br />tu negocio de flores eternas?',
     description = 'Descubre todo lo que puedes hacer con Flores Eternas.',
@@ -120,6 +120,6 @@ const CTA = forwardRef(
   }
 );
 
-CTA.displayName = 'CTA';
+ContenedorBoton.displayName = 'ContenedorBoton';
 
-export default CTA;
+export default ContenedorBoton;
