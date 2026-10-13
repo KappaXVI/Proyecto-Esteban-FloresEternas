@@ -17,6 +17,7 @@ const primeraImagen = '/images/PrimeraImagen.png';
 const imgPedidos = '/images/Pedidos.png';
 const imgInventario = '/images/Inventario.png';
 const imgCierreCaja = '/images/CierreCaja.jpeg';
+const technologies = ['React', 'Tailwind CSS', 'JavaScript', 'Vite'];
 
 const arrowRightIcon = (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -290,97 +291,99 @@ export default function Home() {
       </Section>
 
       {/* SECCIÓN: DISPONIBLE EN TODOS TUS DISPOSITIVOS */}
-      <Section
-        variant="hero"
-        id="dispositivos"
-        aria-labelledby="devices-title"
-        className="relative overflow-hidden"
-        style={{ clipPath: 'inset(0 0 90px 0)', marginBottom: '-215px' }}
-      >
-        {/* Fondo: cubre toda la sección */}
-        <div className="absolute inset-0 z-0" aria-hidden="true">
-          <img src={fondo3} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-crema/10 to-crema/40" />
-          <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-crema/10 to-crema/40" />
-        </div>
-
-        <div
-          className="relative z-20"
-          style={{ paddingTop: '64px', paddingBottom: '48px', paddingLeft: '8%', paddingRight: '6%' }}
+      <div className="overflow-hidden">
+        <Section
+          variant="hero"
+          id="dispositivos"
+          aria-labelledby="devices-title"
+          className="relative overflow-hidden"
+          style={{ clipPath: 'inset(0 0 90px 0)', marginBottom: '-215px' }}
         >
-          <div className="grid lg:grid-cols-[minmax(0,40%)_minmax(0,60%)] gap-8 lg:gap-6 items-center">
-            {/* TEXTO */}
-            <div className="relative z-30 text-center lg:text-left animate-fade-in-up -translate-y-[150px]" style={{ animationDelay: '100ms' }}>
-              <h2 id="devices-title" className="font-lora text-vino text-5xl xl:text-6xl leading-[1.05]">
-                Disponible en
-                <br />
-                todos tus dispositivos.
-              </h2>
-              <Body
-                size="lg"
-                color="cafe-oscuro"
-                className="!mt-6 !mb-0 max-w-sm mx-auto lg:mx-0 text-center lg:text-left"
-              >
-                Accede desde tu computador, tablet o celular. Tu negocio siempre contigo, en tiempo real.
-              </Body>
-            </div>
-
-            {/* IMAGEN (la ajustas tú) */}
-            <div className="relative z-10 animate-fade-in-up -translate-x-[80px] scale-155" style={{ animationDelay: '300ms' }}>
-              <img
-                src={mesaInferior}
-                alt="Composición de monitor de escritorio, laptop y celular con ramos de rosas a los lados"
-                className="w-full mx-auto drop-shadow-warm-xl"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* FOOTER */}
-      <footer
-        className="relative bg-vino text-crema"
-        style={{ zIndex: 1, padding: '56px 8% 32px 8%' }}
-      >
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="text-center lg:text-left">
-            <h2 className="font-lora text-3xl xl:text-4xl leading-[1.1]">
-              ¿Lista para hacer crecer
-              <br />
-              tu negocio de flores eternas?
-            </h2>
-            <p className="text-base opacity-90 mt-3">
-              Descubre todo lo que puedes hacer con Flores Eternas.
-            </p>
+          {/* Fondo: cubre toda la sección */}
+          <div className="absolute inset-0 z-0" aria-hidden="true">
+            <img src={fondo3} alt="" className="w-full h-full object-cover object-top" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-crema/10 to-crema/40" />
+            <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-crema/10 to-crema/40" />
           </div>
 
-          <div className="flex justify-center lg:justify-end shrink-0">
-            <ButtonSecondary iconRight={arrowRightIcon} variant="white" className="whitespace-nowrap">
-              Conocer la plataforma
-            </ButtonSecondary>
-          </div>
-        </div>
-
-        {/* Línea inferior: derechos + tecnologías */}
-        <div className="mt-10 pt-5 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs">
-          <p className="opacity-80">© 2026 Flores Eternas. Todos los derechos reservados.</p>
-
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="uppercase tracking-widest opacity-70">Construido con</span>
-            <ul className="flex flex-wrap justify-center gap-2">
-              {['React', 'Tailwind CSS', 'JavaScript', 'Vite', 'Node.js'].map((tech) => (
-                <li
-                  key={tech}
-                  className="px-2.5 py-0.5 rounded-full border border-crema/30 bg-crema/10"
+          <div
+            className="relative z-20"
+            style={{ paddingTop: '64px', paddingBottom: '48px', paddingLeft: '8%', paddingRight: '6%' }}
+          >
+            <div className="grid lg:grid-cols-[minmax(0,40%)_minmax(0,60%)] gap-8 lg:gap-6 items-center">
+              {/* TEXTO */}
+              <div className="relative z-30 text-center lg:text-left animate-fade-in-up -translate-y-[150px]" style={{ animationDelay: '100ms' }}>
+                <h2 id="devices-title" className="font-lora text-vino text-5xl xl:text-6xl leading-[1.05]">
+                  Disponible en
+                  <br />
+                  todos tus dispositivos.
+                </h2>
+                <Body
+                  size="lg"
+                  color="cafe-oscuro"
+                  className="!mt-6 !mb-0 max-w-sm mx-auto lg:mx-0 text-center lg:text-left"
                 >
-                  {tech}
-                </li>
-              ))}
-            </ul>
+                  Accede desde tu computador, tablet o celular. Tu negocio siempre contigo, en tiempo real.
+                </Body>
+              </div>
+
+              {/* IMAGEN (la ajustas tú) */}
+              <div className="relative z-10 animate-fade-in-up -translate-x-[80px] scale-155" style={{ animationDelay: '300ms' }}>
+                <img
+                  src={mesaInferior}
+                  alt="Composición de monitor de escritorio, laptop y celular con ramos de rosas a los lados"
+                  className="w-full mx-auto drop-shadow-warm-xl"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </footer>
+        </Section>
+
+        {/* FOOTER */}
+        <footer
+          className="relative bg-vino text-crema"
+          style={{ zIndex: 1, padding: '28px 8% 20px 8%' }}
+        >
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            <div className="text-center lg:text-left">
+              <p className="font-lora text-2xl leading-tight">Flores Eternas</p>
+              <p className="text-sm opacity-80 mt-1 max-w-xl">
+                Proyecto web de gestión para floristerías: pedidos, inventario y cierre
+                de caja en una interfaz responsive, diseñada y desarrollada desde cero.
+              </p>
+            </div>
+
+            <div className="flex justify-center lg:justify-end shrink-0">
+              <ButtonSecondary iconRight={arrowRightIcon} variant="white" className="whitespace-nowrap">
+                Conocer la plataforma
+              </ButtonSecondary>
+            </div>
+          </div>
+
+          <div className="mt-5 pt-4 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-3 text-xs">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 opacity-80">
+              <p>© 2026 Flores Eternas</p>
+              <a href="#" className="hover:underline">Términos y condiciones</a>
+              <a href="#" className="hover:underline">Política de privacidad</a>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="uppercase tracking-widest opacity-70">Construido con</span>
+              <ul className="flex flex-wrap justify-center gap-2">
+                {technologies.map((tech) => (
+                  <li
+                    key={tech}
+                    className="px-2.5 py-0.5 rounded-full border border-crema/30 bg-crema/10"
+                  >
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </footer>
+      </div>
     </>
   );
 }
