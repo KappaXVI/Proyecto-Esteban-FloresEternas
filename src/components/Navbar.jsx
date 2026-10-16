@@ -73,7 +73,7 @@ export default function Navbar() {
         <div className="flex lg:hidden w-full justify-between items-center h-full">
           <Link
             to="/"
-            className="flex items-center"
+            className="flex items-center translate-x-3 sm:translate-x-5"
             aria-label="Flores Eternas - Inicio"
             onClick={() => setIsOpen(false)}
           >

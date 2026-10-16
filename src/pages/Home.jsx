@@ -322,9 +322,8 @@ export default function Home() {
 
                 <div className="!mt-14 flex flex-col items-center sm:flex-row gap-4 sm:justify-center lg:justify-start">
                   <ButtonPrimary
-                    iconLeft={playIcon}
                     iconRight={arrowIcon}
-                    className="w-full max-w-[220px] sm:w-auto sm:max-w-none"
+                    className="w-full max-w-[250px] sm:w-auto sm:max-w-none"
                     onClick={() =>
                       document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })
                     }
@@ -360,13 +359,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Flecha scroll */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 animate-bounce" aria-hidden="true">
-          <svg className="w-8 h-8 text-vino hover:text-rosa-suave transition-colors drop-shadow-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </div>
 
         <div className="relative h-5 lg:h-10 -mt-5" aria-hidden="true" />
