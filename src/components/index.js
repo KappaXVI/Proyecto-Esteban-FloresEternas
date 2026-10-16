@@ -1,0 +1,12 @@
+export { default as ButtonPrimary } from './ButtonPrimary';
+export { default as ButtonSecondary } from './ButtonSecondary';
+export { default as ButtonGhost } from './ButtonGhost';
+export { default as Navbar } from './Navbar';
+export { default as Section } from './Section';
+export { default as Container } from './Container';
+export { default as Heading } from './Heading';
+export { default as Body } from './Body';
+export { default as Price } from './Price';
+export { default as Badge } from './Badge';
+export { default as ContenedorBoton } from './ContenedorBoton';
+export { statusConfig } from './Badge.config';

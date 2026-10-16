@@ -1,1 +1,148 @@
 @import "tailwindcss";
+
+@theme {
+  --color-crema: #FFFCF6;
+  --color-blanco: #FFFFFF;
+  --color-rosa-suave: #FFDADE;
+  --color-ciruela: #5E0048;
+  --color-cafe-medio: #83572E;
+  --color-cafe-oscuro: #572A00;
+  --color-gris-claro: #E5E5E5;
+  --color-vino: #6E0107;
+  --color-vino-hover: #5A0106;
+  --color-vino-light: #8B0109;
+  
+  --font-radley: "Radley", serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-lora: "Lora", serif;
+  --font-jost: "Jost", sans-serif;
+  
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
+  --radius-4xl: 32px;
+  --radius-5xl: 40px;
+  
+  --shadow-warm: 0 10px 30px -10px rgba(87, 42, 0, 0.15), 0 4px 12px -4px rgba(87, 42, 0, 0.1);
+  --shadow-warm-lg: 0 20px 50px -15px rgba(87, 42, 0, 0.2), 0 8px 20px -8px rgba(87, 42, 0, 0.12);
+  --shadow-warm-xl: 0 30px 80px -20px rgba(87, 42, 0, 0.25), 0 12px 30px -10px rgba(87, 42, 0, 0.15);
+  
+  --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  --animate-fade-in: fadeIn 0.4s ease-out forwards;
+  
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins);
+  color: var(--color-cafe-oscuro);
+  background-color: var(--color-crema);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-radley);
+  font-weight: 400;
+  color: var(--color-vino);
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+
+p, span, li, a, button, input, select, textarea {
+  font-family: var(--font-poppins);
+  line-height: 1.6;
+}
+
+.font-lora { font-family: var(--font-lora); }
+.font-jost { font-family: var(--font-jost); }
+.font-radley { font-family: var(--font-radley); }
+.font-poppins { font-family: var(--font-poppins); }
+
+.italic-radley {
+  font-family: var(--font-radley);
+  font-style: italic;
+}
+
+.text-vino { color: var(--color-vino); }
+.text-crema { color: var(--color-crema); }
+.text-blanco { color: var(--color-blanco); }
+.text-cafe-oscuro { color: var(--color-cafe-oscuro); }
+.text-cafe-medio { color: var(--color-cafe-medio); }
+.text-rosa-suave { color: var(--color-rosa-suave); }
+.text-ciruela { color: var(--color-ciruela); }
+
+.bg-crema { background-color: var(--color-crema); }
+.bg-blanco { background-color: var(--color-blanco); }
+.bg-vino { background-color: var(--color-vino); }
+.bg-rosa-suave { background-color: var(--color-rosa-suave); }
+
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-3xl { border-radius: var(--radius-3xl); }
+.rounded-4xl { border-radius: var(--radius-4xl); }
+.rounded-5xl { border-radius: var(--radius-5xl); }
+
+.shadow-warm { box-shadow: var(--shadow-warm); }
+.shadow-warm-lg { box-shadow: var(--shadow-warm-lg); }
+.shadow-warm-xl { box-shadow: var(--shadow-warm-xl); }
+
+.animate-fade-in-up { animation: var(--animate-fade-in-up); }
+.animate-fade-in { animation: var(--animate-fade-in); }
+
+.btn-primary {
+  @apply bg-vino text-crema font-medium px-8 py-3 rounded-xl transition-all duration-200 hover:bg-vino-hover hover:shadow-warm focus:outline-none focus:ring-2 focus:ring-rosa-suave focus:ring-offset-2 focus:ring-offset-crema inline-flex items-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-blanco text-vino font-medium px-8 py-4 rounded-2xl transition-all duration-200 hover:bg-gris-claro hover:shadow-warm focus:outline-none focus:ring-2 focus:ring-vino focus:ring-offset-2 focus:ring-offset-blanco inline-flex items-center gap-2;
+}
+
+.btn-ghost {
+  @apply text-vino font-medium px-4 py-2 rounded-xl transition-colors duration-200 hover:bg-rosa-suave focus:outline-none focus:ring-2 focus:ring-vino inline-flex items-center gap-2;
+}
+
+.section-padding {
+  @apply px-6 md:px-12 lg:px-20 py-16 md:py-24 lg:py-32;
+}
+
+.container-main {
+  @apply mx-auto max-w-7xl;
+}
+
+.container-wide {
+  @apply mx-auto max-w-[1920px];
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background-color: var(--color-rosa-suave);
+  color: var(--color-vino);
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-vino ring-offset-2 ring-offset-crema;
+}
