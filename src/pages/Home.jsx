@@ -345,7 +345,7 @@ export default function Home() {
           className="relative bg-vino text-crema"
           style={{ zIndex: 1, padding: '28px 8% 20px 8%' }}
         >
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mb-4">
             <div className="text-center lg:text-left">
               <p className="font-lora text-2xl leading-tight">Flores Eternas</p>
               <p className="text-sm opacity-80 mt-1 max-w-xl">
@@ -354,14 +354,14 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex justify-center lg:justify-end shrink-0">
+            <div className="flex justify-center lg:justify-end shrink-0 mb-4">
               <ButtonSecondary iconRight={arrowRightIcon} variant="white" className="whitespace-nowrap">
                 Conocer la plataforma
               </ButtonSecondary>
             </div>
           </div>
 
-          <div className="mt-5 pt-4 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-3 text-xs">
+          <div className="mt-12 pt-4 border-t border-crema/20 flex flex-col lg:flex-row justify-between items-center gap-3 text-xs">
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 opacity-80">
               <p>© 2026 Flores Eternas</p>
               <a href="#" className="hover:underline">Términos y condiciones</a>
@@ -372,12 +372,7 @@ export default function Home() {
               <span className="uppercase tracking-widest opacity-70">Construido con</span>
               <ul className="flex flex-wrap justify-center gap-2">
                 {technologies.map((tech) => (
-                  <li
-                    key={tech}
-                    className="px-2.5 py-0.5 rounded-full border border-crema/30 bg-crema/10"
-                  >
-                    {tech}
-                  </li>
+                  <li key={tech}>{tech}</li>
                 ))}
               </ul>
             </div>
